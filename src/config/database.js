@@ -1,12 +1,14 @@
+import {config} from 'dotenv'
 import mysql from "mysql";
+config()
 
 // Conexao com o banco...
 const db = mysql.createPool({
     connectionLimit: 10,
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "delivery_mais"
+    host: `${process.env.HOST}`,
+    user: `${process.env.USER}`,
+    password: `${process.env.PASSWORD}`,
+    database: `${process.env.DATABASE}`
 });
 
 
